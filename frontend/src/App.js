@@ -5,16 +5,27 @@ import Features from './components/LandingPage/Features';
 import About from './components/LandingPage/About';
 import Footer from './components/LandingPage/Footer';
 import NewsLetter from './components/LandingPage/NewsLetter';
+import NoPage from './components/NoPage';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import InpForm from './components/NotesPage/InpForm';
 
 function App() {
   return (
     <>
       <Navbar/>
-      <Home/>
+      {/* <Home/>
       <Features/>
       <About/>
       <NewsLetter/>
-      <Footer/>
+      <Footer/> */}
+      
+      <BrowserRouter>
+      <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="notes" element={<InpForm />} />
+          <Route path="*" element={<NoPage />} />
+      </Routes>
+    </BrowserRouter>
     </>
   );
 }

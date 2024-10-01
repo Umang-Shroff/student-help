@@ -1,10 +1,15 @@
 import React from 'react'
-import imgsrc from '../assets/bannerimg.png'
+// import imgsrc from '../assets/bannerimg.png'
 import {motion} from 'framer-motion'
-import { fadeIn } from '../variants'
+import { fadeIn } from '../../variants'
+import Features from './Features'
+import About from './About'
+import NewsLetter from './NewsLetter'
+import Footer from './Footer'
 
 const Home = () => {
   return (
+  <>
     <div className="od:px-12 p-4 max-w-screen-2xl mx-auto mt-24">
         <div className="gradientBg rounded-xl rounded-br-[80px] md:p-9 px-4 py-9">
             <div className="flex flex-col md:flex-row-reverse justify-between items-center gap-10">
@@ -15,7 +20,7 @@ const Home = () => {
                   viewport={{once:true, amount:0.7}}
                   >
                     {/* VECTOR IMG */}
-                    <img src={imgsrc} />
+                    <img src="#" alt="#" />
                   </motion.div>
 
               <motion.div 
@@ -35,6 +40,11 @@ const Home = () => {
             </div>
         </div>
     </div>
+    <Features/>
+    <About/>
+    <NewsLetter/>
+    <Footer/>
+  </>
   )
 }
 
