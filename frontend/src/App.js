@@ -1,10 +1,10 @@
 import './App.css';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Features from './components/Features';
-import About from './components/About';
-import Footer from './components/Footer';
-import NewsLetter from './components/NewsLetter';
+import Navbar from './components/LandingPage/Navbar';
+import Home from './components/LandingPage/Home';
+import Features from './components/LandingPage/Features';
+import About from './components/LandingPage/About';
+import Footer from './components/LandingPage/Footer';
+import NewsLetter from './components/LandingPage/NewsLetter';
 
 function App() {
   return (
