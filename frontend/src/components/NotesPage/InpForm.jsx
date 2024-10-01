@@ -9,13 +9,10 @@ const fetchData = async (sem,department) => {
   try {
     const Get_url = `http://localhost:5000/notes/get/?sem=${sem}&department=${department}`; 
     const response = await fetch(Get_url, {
-      method: 'POST', 
+      method: 'GET', 
       headers: {
         'Content-Type': 'application/json', 
       },
-      body: JSON.stringify({
-       
-      }),
     });
 
     if (!response.ok) {
@@ -37,14 +34,16 @@ const InpForm = () => {
     const [dept,setDept] = useState('CS');
     const [sem,setSem] = useState('1');
 
-    function handleSubmit(event) {
+   const handleSubmit= async(event)=>{
         event.preventDefault();
-        console.log(sem,dept+"  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         // let params = serializeFormQuery(event.target);
         setSearchParams({department: dept, semester: sem});
        
-      const data=fetchData(sem,dept)
+      const data=await fetchData(sem,dept)
+      console.log("yy  ")
+      console.log(data)
       if(data!=='Error'){
+        setSearchParams()
         //data processing
       }
       }
