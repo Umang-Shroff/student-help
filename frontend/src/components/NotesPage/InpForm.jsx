@@ -56,9 +56,9 @@ const InpForm = () => {
       <form className="form" onSubmit={handleSubmit}>
         <p className="form-title">Enter Department and Sem</p>
         <div className="input-container-form">
-          {/* <input type="email" placeholder="Enter email" /> */}
 
-            <select id="dept" onChange={(e)=>setDept(e.target.value)}>
+            <select id="dept" onChange={(e)=>setDept(e.target.value)} required>
+              <option value="">Select Department</option>
               <option value="cs">CS</option>
               <option value="it">IT</option>
               <option value="csds">CSDS</option>
@@ -72,8 +72,8 @@ const InpForm = () => {
           <span></span>
         </div>
         <div className="input-container-form">
-          {/* <input type="password" placeholder="Enter password" /> */}
-            <select id="sem" onChange={(e)=>setSem(e.target.value)}>
+            <select id="sem" onChange={(e)=>setSem(e.target.value)} required>
+              <option value="">Select Semester</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -87,7 +87,7 @@ const InpForm = () => {
 
         </div>
         <button type="submit" className="submit">
-          Sign in
+          Submit
         </button>
       </form>
     </div>
