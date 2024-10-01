@@ -23,6 +23,6 @@ console.log(error);
 
 app.use('/',router);
 
-app.listen(7080,()=>{
+app.listen(5000,()=>{
     console.log("running");
 });

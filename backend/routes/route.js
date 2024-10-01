@@ -17,7 +17,7 @@ const findDocument = async (sem, department) => {
 
 
 const createDocument = async (sem, department) => {
-    const newDocument = { Sem: sem, Department: department }; 
+    const newDocument = { Sem: sem, Department: department ,Drive_lin:'Placeholder for link'}; 
     try {
         return await data.create(newDocument);
     } catch (e) {
@@ -31,8 +31,8 @@ router.route('/notes/get/')
     // eg POST /notes/get/?sem=1&department=CS
     res.header("Access-Control-Allow-Origin", "*");
     const { sem, department } = req.query; 
-
     try {
+        
         const result = await findDocument(sem, department); 
         return res.status(200).json(result);
     } catch (e) {
@@ -41,12 +41,11 @@ router.route('/notes/get/')
 });
 
 
-router.route('/notes/get/post')
+router.route('/notes/post')
 .post(async (req, res) => {
     // eg POST /notes/post/?sem=1&department=CS
     res.header("Access-Control-Allow-Origin", "*");
     const { sem, department } = req.query;
-
     try {
         const createdDocument = await createDocument(sem, department); 
         return res.status(201).json(createdDocument);
