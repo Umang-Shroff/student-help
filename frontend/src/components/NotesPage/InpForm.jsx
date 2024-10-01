@@ -2,16 +2,50 @@ import React, { useState } from 'react';
 import './InpForm.css';
 import { useSearchParams } from "react-router-dom";
 
+
+
+
+const fetchData = async (sem,department) => {
+  try {
+    const Get_url = `http://localhost:5000/notes/get/?sem=${sem}&department=${department}`; 
+    const response = await fetch(Get_url, {
+      method: 'GET', 
+      headers: {
+        'Content-Type': 'application/json', 
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+  return data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  return 'Error'
+  }
+};
+
+
+
 const InpForm = () => {
 
     const [searchParams, setSearchParams] = useSearchParams();
-    const [dept,setDept] = useState('');
-    const [sem,setSem] = useState('');
+    const [dept,setDept] = useState('CS');
+    const [sem,setSem] = useState('1');
 
-    function handleSubmit(event) {
+   const handleSubmit= async(event)=>{
         event.preventDefault();
         // let params = serializeFormQuery(event.target);
         setSearchParams({department: dept, semester: sem});
+       
+      const data=await fetchData(sem,dept)
+      console.log("yy  ")
+      console.log(data)
+      if(data!=='Error'){
+        setSearchParams()
+        //data processing
+      }
       }
 
   return (
