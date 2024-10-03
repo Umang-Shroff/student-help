@@ -8,6 +8,7 @@ import NewsLetter from './components/LandingPage/NewsLetter';
 import NoPage from './components/NoPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import InpForm from './components/NotesPage/InpForm';
+import Notes from './components/NotesPage/Notes';
 
 function App() {
   return (
@@ -22,8 +23,9 @@ function App() {
       <BrowserRouter>
       <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="notes" element={<InpForm />} />
+          <Route path="/notes" element={<InpForm />} />
           <Route path="*" element={<NoPage />} />
+          <Route path="/notes/search" element={<Notes/>} />
       </Routes>
     </BrowserRouter>
     </>
