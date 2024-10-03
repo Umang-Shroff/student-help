@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './InpForm.css';
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 
 
@@ -30,14 +30,16 @@ const fetchData = async (sem,department) => {
 
 const InpForm = () => {
 
-    const [searchParams, setSearchParams] = useSearchParams();
+    // const [searchParams, setSearchParams] = useSearchParams();
     const [dept,setDept] = useState('CS');
     const [sem,setSem] = useState('1');
 
    const handleSubmit= async(event)=>{
         event.preventDefault();
         // let params = serializeFormQuery(event.target);
-        setSearchParams({department: dept, semester: sem});
+        // setSearchParams({department: dept, semester: sem});
+        const searchParams = new URLSearchParams({ department: dept, semester: sem }).toString();
+        navigate(`/notes/search?${searchParams}`);
        
       const data=await fetchData(sem,dept)
       console.log("yy  ")
