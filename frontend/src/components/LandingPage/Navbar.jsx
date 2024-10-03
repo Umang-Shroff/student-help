@@ -20,6 +20,7 @@ const Navbar = () => {
                     <a className="block hover:text-gray-400 cursor-pointer">Feature</a>
                     <a className="block hover:text-gray-400 cursor-pointer">About</a>
                     <a className="block hover:text-gray-400 cursor-pointer">Contact</a>
+                    <a href="/notes" className="block hover:text-gray-400 cursor-pointer">Notes</a>
                 </ul>
             </div>
             <div className="space-x-12 hidden md:flex items-center">
@@ -43,6 +44,7 @@ const Navbar = () => {
         <a className="block hover:text-gray-300 cursor-pointer">Feature</a>
         <a className="block hover:text-gray-300 cursor-pointer">About</a>
         <a className="block hover:text-gray-300 cursor-pointer">Contact</a>
+        <a className="block hover:text-gray-300 cursor-pointer">Notes</a>
     </div>
     </>
   )
